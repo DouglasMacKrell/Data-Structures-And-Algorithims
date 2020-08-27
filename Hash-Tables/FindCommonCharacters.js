@@ -1,16 +1,15 @@
 // FIND COMMON CHARACTERS
 // https://leetcode.com/problems/find-common-characters/
 
-// Given an array A of strings made only from lowercase letters, 
-// return a list of all characters that show up in all strings 
-// within the list (including duplicates).  For example, if 
-// a character occurs 3 times in all strings but not 4 times, 
-// you need to include that character three times in the 
+// Given an array A of strings made only from lowercase letters,
+// return a list of all characters that show up in all strings
+// within the list (including duplicates).  For example, if
+// a character occurs 3 times in all strings but not 4 times,
+// you need to include that character three times in the
 // final answer.
 
 // You may return the answer in any order.
 
- 
 // Example 1:
 
 // Input: ["bella","label","roller"]
@@ -19,7 +18,6 @@
 
 // Input: ["cool","lock","cook"]
 // Output: ["c","o"]
- 
 
 // Note:
 
@@ -27,22 +25,21 @@
 // 1 <= A[i].length <= 100
 // A[i][j] is a lowercase letter
 
-
 // DOUG NOTES:
 
-// - I have no idea what that note is trying to clue me in on 
+// - I have no idea what that note is trying to clue me in on
 // - Why the heck can't I just solve this with .indexOf?
 
 // - create empty Answer array
 // - create object full of objects!
 //   - each word is a key => value is object => encountered letter is key and times encountered is value
-// - Loop 1 
+// - Loop 1
 //     - loop over array of strings
-//     - add full string to obj as key 
+//     - add full string to obj as key
 //     - Loop 2
 //       - loop over string
-//       - if letter exists 
-//         - increment value 
+//       - if letter exists
+//         - increment value
 //       - else
 //         - add letter with value 1
 // - Loop over myObj[firstWord]
@@ -55,33 +52,37 @@
 // - Return answer array
 
 const findCommonCharacters = (arr) => {
-    var answers = []
-    var myObject = {}
-    var testWord = arr[0]
-    for (let word of arr) {
-        myObject[word] = {};
-        for (let letter of word) {
-            if (myObject[word][letter]) {
-                myObject[word][letter] += 1
-            } else {
-                myObject[word][letter] = 1
-            }
-        }
+  var answers = [];
+  var myObject = {};
+  var testWord = arr[0];
+  for (let word of arr) {
+    myObject[word] = {};
+    for (let letter of word) {
+      if (myObject[word][letter]) {
+        myObject[word][letter] += 1;
+      } else {
+        myObject[word][letter] = 1;
+      }
     }
-    for (let letter in myObject[testWord]) {
-        while (myObject[testWord][letter] > 0) {
-            for (let word in myObject) {
-                if (myObject[word][letter] > 0) {
-                    myObject[word][letter] -= 1
-                } else {
-                    continue
-                }
-            }
-            answers.push(letter)
-            myObject[testWord][letter] -= 1
+  }
+  for (let letter of testWord) {
+    let counter = 1;
+    for (let word in myObject) {
+      if (word != testWord) {
+        if (myObject[word][letter] > 0) {
+          myObject[word][letter] -= 1;
+          counter += 1;
         }
+        if (counter === arr.length) {
+          answers.push(letter);
+        }
+      }
     }
-    return answers
-}
+  }
+  return answers;
+};
 
-console.log(findCommonCharacters(["bella", "label", "roller"]))
+console.log(findCommonCharacters(["bella", "label", "roller"]));
+console.log(findCommonCharacters(["cool", "lock", "cook"]));
+console.log(findCommonCharacters(["leonardo", "donatello", "loosen",]))
+
