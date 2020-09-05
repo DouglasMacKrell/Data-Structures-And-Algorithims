@@ -59,39 +59,41 @@ class Node {
   }
 }
 
-class Tree {
-  constructor() {
-    this.root;
-  }
 
-  add(data) {
-    const node = this.root;
-    if (node == null) {
-      this.root = new Node(data);
-      return;
-    } else {
-      const addChild = (node) => {
-        if (node.left == null) {
-          node.left = new Node(data);
-        } else if (node.left != null && node.right == null) {
-          node.right = new Node(data);
-        } else if (node.left != null && node.right != null) {
-          if (node.left.left == null || node.left.right == null) {
-            return addChild(node.left);
-          } else {
-            return addChild(node.right);
-          }
-        }
-      };
-      return addChild(node);
-    }
-  }
 
-  checkTree() {
-    if (this.root == null) {
-      return null;
-    } else {
-      var result = true;
+// class Tree {
+//   constructor() {
+//     this.root;
+//   }
+
+//   add(data) {
+//     const node = this.root;
+//     if (node == null) {
+//       this.root = new Node(data);
+//       return;
+//     } else {
+//       const addChild = (node) => {
+//         if (node.left == null) {
+//           node.left = new Node(data);
+//         } else if (node.left != null && node.right == null) {
+//           node.right = new Node(data);
+//         } else if (node.left != null && node.right != null) {
+//           if (node.left.left == null || node.left.right == null) {
+//             return addChild(node.left);
+//           } else {
+//             return addChild(node.right);
+//           }
+//         }
+//       };
+//       return addChild(node);
+//     }
+//   }
+
+//   checkTree() {
+//     if (this.root == null) {
+//       return null;
+//     } else {
+//       var result = true;
       const traverseInOrder = (node) => {
           if (node.left != null && node.data != node.left.data || node.right != null && node.data != node.right.data) {
               result = false
@@ -105,17 +107,53 @@ class Tree {
       };
       traverseInOrder(this.root);
       return result;
-    }
+//     }
+//   }
+// }
+
+checkTree(root) {
+  let check = root.data
+    let current = root;
+      const traverseInOrder = (node) => {
+          if (node.left != null && node.data != node.left.data || node.right != null && node.data != node.right.data) {
+              result = false
+          }
+          if (node.left && node.data == node.left.data) {
+              traverseInOrder(node.left);
+          }
+          if (node.right && node.data == node.right.data) {
+              traverseInOrder(node.right)
+          }
+      };
+      traverseInOrder(root);
+      return result;
+    return true;
+} 
+
+checkTree(root) {
+  result = []
+  const inOrderSave(root) {
+  if (!root) return;
+
+  inOrderSave(root.left)
+  result.push(root.value)
+  inOrderSave(root.right)
+}
+for (let i = 0; i < result.length - 1; i++) {
+  if (result[i] != null && result[i + 1] != null && result[i] != result[i + 1]) {
+    return false
   }
 }
+return true
+}
 
-const univaluedBinaryTreeCheck = (arr) => {
-  let treeCheck = new Tree();
-  for (let node of arr) {
-    treeCheck.add(node);
-  }
-  return treeCheck.checkTree();
-};
+// const univaluedBinaryTreeCheck = (arr) => {
+//   let treeCheck = new Tree();
+//   for (let node of arr) {
+//     treeCheck.add(node);
+//   }
+//   return treeCheck.checkTree();
+// };
 
 // const test1 = new Tree();
 
