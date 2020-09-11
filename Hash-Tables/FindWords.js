@@ -79,7 +79,7 @@ const findWords = (arr, str) => {
       wordKeeper.push(word);
     }
   }
-  console.log(wordKeeper);
+  // console.log(wordKeeper);
   for (let answerWord of wordKeeper) {
     answer += answerWord.length;
   }

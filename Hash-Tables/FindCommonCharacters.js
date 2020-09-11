@@ -83,6 +83,6 @@ const findCommonCharacters = (arr) => {
 };
 
 console.log(findCommonCharacters(["bella", "label", "roller"])); // ["e", "l", "l"]
-console.log(findCommonCharacters(["cool", "lock", "cook"]));
+console.log(findCommonCharacters(["cool", "lock", "cook"])); // ]"c", "o"]
 console.log(findCommonCharacters(["leonardo", "donatello", "loosen",]))
 
