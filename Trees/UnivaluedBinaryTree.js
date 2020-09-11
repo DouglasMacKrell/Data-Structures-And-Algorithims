@@ -204,14 +204,14 @@ var isUnivalTree = function (root) {
       }
     }
 
-    traverse(node.left);
     if (node.right) {
-      console.log("Looking Right");
-      if (node.value !== node.right.value) {
-        console.log("gotcha right");
-        isUniVal = false;
-      }
+        console.log("Looking Right");
+        if (node.value !== node.right.value) {
+            console.log("gotcha right");
+            isUniVal = false;
+        }
     }
+    traverse(node.left);
     traverse(node.right);
   };
   traverse(root);
