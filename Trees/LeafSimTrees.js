@@ -118,7 +118,6 @@ var leafSimilar = function (root1, root2) {
     postOrder1(node.left);
     postOrder1(node.right);
     if (!node.left && !node.right) {
-      console.log("gotcha")
       tree1.push(node.val);
     }
   };
