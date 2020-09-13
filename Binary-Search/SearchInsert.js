@@ -63,10 +63,12 @@ input2 = 2;
 
 console.log(searchInsert(input1, input2));
 
+
+
 const searchInsert2 = (nums, target) => {
   let low = 0;
   let high = nums.length - 1;
-  let answer = 0
+  let answer = 0;
 
   const searchHelper = (nums, target, low, high) => {
     if (low > high) return;
@@ -93,8 +95,8 @@ const searchInsert2 = (nums, target) => {
       return searchHelper(nums, target, low, mid - 1);
     }
   };
-  searchHelper(nums, target, low, high)
-  return answer
+  searchHelper(nums, target, low, high);
+  return answer;
 };
 
 console.log(searchInsert2(input1, input2));
