@@ -100,3 +100,25 @@ var maxDepth = function (root) {
 };
 
 console.log(maxDepth(a));
+
+         A
+       /   \
+      B     C      <== max depth = 3
+          /   \
+         D     E
+
+CALL STACK B:
+maxDepth(null)  +0
+maxDepth(nodeB) +1     
+maxDepth(nodeA) +1   <= leftHeight
+
+CALL STACK C:
+maxDepth(null)  +0
+maxDepth(nodeD) +1   <= leftHeight 
+maxDepth(nodeC) +1   <= beats max depth of the left B node!
+maxDepth(nodeA) +1   <= rightHeight
+
+return Math.max(1, 2) + 1  = 3
+                   ^
+
+

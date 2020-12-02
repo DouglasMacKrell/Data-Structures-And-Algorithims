@@ -197,7 +197,7 @@ var isUnivalTree = function (root) {
   const traverse = (node) => {
     if (!node) return;
     if (node.left) {
-      console.log("looking Left");
+      console.log("looking Left", node.value);
       if (node.value !== node.left.value) {
         console.log("gotcha left");
         isUniVal = false;
@@ -205,7 +205,7 @@ var isUnivalTree = function (root) {
     }
 
     if (node.right) {
-        console.log("Looking Right");
+        console.log("Looking Right", node.value);
         if (node.value !== node.right.value) {
             console.log("gotcha right");
             isUniVal = false;
