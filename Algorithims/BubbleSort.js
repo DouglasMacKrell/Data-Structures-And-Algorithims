@@ -13,9 +13,9 @@ reverseLoop(input1)
 // Write a function `swap` that takes in an array and two indexes `i` &`j` and swaps the elements `I` & `j`.
 
 const swap = (arr, a, b) => {
-    let eleA = arr[a]
-    let eleB = arr[b]
-    arr.splice(a, 2, eleB, eleA)
+    let temp = arr[a]
+    arr[a] = arr[b]
+    arr[b] = temp
     return arr
 }
 
