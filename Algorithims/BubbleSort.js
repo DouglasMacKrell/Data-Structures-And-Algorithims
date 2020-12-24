@@ -62,3 +62,72 @@ const bubbleSort3 = (arr) => {
     lastIndex--;
   } while (swapped);
 };
+
+let files = [
+  {
+    name: "cotton_lead.asf",
+    created_at: "2020-12-09T12:58:13.964Z",
+  },
+  {
+    name: "intuitive.bed",
+    created_at: "2020-12-09T17:29:53.805Z",
+  },
+  {
+    name: "customized_deposit_bacon.cc",
+    created_at: "2020-12-09T07:43:07.344Z",
+  },
+  {
+    name: "firewall_transmitting.rgb",
+    created_at: "2020-12-09T06:35:22.480Z",
+  },
+  {
+    name: "integrated.psb",
+    created_at: "2020-12-09T07:38:17.196Z",
+  },
+  {
+    name: "administrator_specialist.chm",
+    created_at: "2020-12-09T15:48:53.155Z",
+  },
+  {
+    name: "quantify_toys.mpm",
+    created_at: "2020-12-09T20:20:21.663Z",
+  },
+  {
+    name: "e_commerce_concrete_concrete.snd",
+    created_at: "2020-12-09T12:58:30.777Z",
+  },
+  {
+    name: "incubate_belarus.doc",
+    created_at: "2020-12-09T06:45:43.747Z",
+  },
+  {
+    name: "berkshire_valleys_sri.tra",
+    created_at: "2020-12-09T13:36:05.195Z",
+  },
+];
+
+var items = [
+  { name: "Edward", value: 21 },
+  { name: "Sharpe", value: 37 },
+  { name: "And", value: 45 },
+  { name: "The", value: -12 },
+  { name: "Magnetic", value: 13 },
+  { name: "Amanda", value: 37 },
+];
+
+const bubbleSort4 = (arr) => {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    for (let j = 0; j < i; j++) {
+      if (arr[j]["value"] === arr[j + 1]["value"]) {
+        if (arr[j]["name"][0] > arr[j]["name"][0]) {
+          swap(arr, j, j + 1);
+        }
+      } else if (arr[j]["value"] > arr[j + 1]["value"]) {
+        swap(arr, j, j + 1);
+      }
+    }
+  }
+};
+
+bubbleSort4(items);
+console.log(items);
